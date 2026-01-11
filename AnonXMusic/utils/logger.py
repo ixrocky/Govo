@@ -21,10 +21,10 @@ async def play_logs(message, streamtype):
 <b>◈ 𝐒𝐞𝐚𝐫𝐜𝐡𝐞𝐝 ➪ </b> <code>{message.text.split(None, 1)[1]}</code>
 <b>◈ 𝐁𝐲 ➪ </b> {streamtype}
 ╚═══❰ #𝐍𝐞𝐰𝐒𝐨𝐧𝐠 ❱══❍⊱❁۪۪"""
-        if message.chat.id != LOG_GROUP_ID:
+        if message.chat.id != LOGGER_ID:
             try:
                 await app.send_message(
-                    chat_id=LOG_GROUP_ID,
+                    chat_id=LOGGER_ID,
                     text=logger_text,
                     parse_mode=ParseMode.HTML,
                     disable_web_page_preview=True,
