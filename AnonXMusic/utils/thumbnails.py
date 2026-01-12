@@ -124,10 +124,11 @@ async def get_thumb(videoid, user_id):
             black_ic = Image.merge("RGBA", (r.point(lambda *_: 0), g.point(lambda *_: 0), b.point(lambda *_: 0), a))
             bg.paste(black_ic, (ICONS_X, ICONS_Y), black_ic)
 
-        font = ImageFont.truetype("SaregamaMusic/assets/font3.ttf", 28)  
+        font = ImageFont.truetype("AnonXMusic/assets/font3.ttf", 28)  
         text = " "
-        text_size = draw.textsize(text, font=font)
-        draw.text((1280 - text_size[0] - 10, 10), text, fill="yellow", font=font)
+        bbox = draw.textbbox((0, 0), text, font=font)
+        text_width = bbox[2] - bbox[0]
+        draw.text((1280 - text_width - 10, 10), text, fill="yellow", font=font)
         try:
             os.remove(thumb_path)
         except OSError:
